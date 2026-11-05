@@ -14,6 +14,23 @@
 # 1a. Run this line to load the dataset into R:
 study_data <- read.csv("sound_study.csv")
 
+## Reshape the data
+# 1a. Load the unstacked CSV file
+unstacked_data <- read.csv("sound_study.csv")
+
+# 1b. Restructure the data from 3 columns into 2 columns (response & group)
+study_data <- stack(unstacked_data)
+colnames(study_data) <- c("words", "sound")
+
+# 1c. View the newly structured data
+head(study_data)
+
+# 1d. Calculate sample means and standard deviations by group
+tapply(study_data$words, study_data$sound, mean)
+tapply(study_data$words, study_data$sound, sd)
+
+######
+
 # 1b. View the first few rows of the data:
 head(study_data)
 
