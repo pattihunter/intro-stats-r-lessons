@@ -32,23 +32,7 @@ prop_table <- prop.table(checkout_counts, margin = 2)
 prop_table
 
 # ------------------------------------------------------------------------------
-# OPTION A: Side-by-Side (Grouped) Bar Chart
-# ------------------------------------------------------------------------------
-barplot(prop_table, 
-        beside = TRUE,                        # Places bars side-by-side
-        col = c("steelblue", "coral"),        # Bar colors
-        ylim = c(0, 1),                       # Y-axis scale from 0 to 1 (0% to 100%)
-        main = "Purchase Outcomes by Checkout Method (Proportions)",
-        xlab = "Checkout Method", 
-        ylab = "Proportion")
-
-# Add a color legend
-legend("topright", 
-       legend = rownames(prop_table), 
-       fill = c("steelblue", "coral"))
-
-# ------------------------------------------------------------------------------
-# OPTION B: Stacked Bar Chart (100% Stacked)
+# 2. Stacked Bar Chart (100% Stacked)
 # ------------------------------------------------------------------------------
 barplot(prop_table, 
         beside = FALSE,                       # Stacks bars on top of each other
