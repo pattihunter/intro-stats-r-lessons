@@ -25,3 +25,14 @@ plot(bikes$temp_F, bikes$cnt,
      ylab = "Total Daily Rentals (cnt)",
      pch = 19, col = "steelblue")
 abline(model_1, col = "darkred", lwd = 2)
+
+# Fit multiple regression with two numeric predictors
+model_2 <- lm(cnt ~ temp_F + humidity, data = bikes)
+summary(model_2)
+
+# You can verify your hand calculation with R:
+predict(model_2, newdata = data.frame(temp_F = c(75, 75), humidity = c(80, 40)))
+
+# Add workingday and yr to the model
+model_3 <- lm(cnt ~ temp_F + humidity + workingday + yr, data = bikes)
+summary(model_3)
